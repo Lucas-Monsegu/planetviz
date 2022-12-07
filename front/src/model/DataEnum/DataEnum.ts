@@ -1,0 +1,15 @@
+export enum DataEnum {
+  Carbon = 1,
+  Humidity,
+  Pressure,
+  Temperature,
+  Wind,
+  Rain,
+  AirQuality,
+  CO,
+  Dew,
+  NO2,
+  O3,
+  PM10,
+  PM25,
+}

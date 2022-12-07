@@ -1,0 +1,70 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "PlanetViz API documentation",
+    "version": "1.0.0",
+    "title": "PlanetViz"
+  },
+  "host": "localhost:3001",
+  "basePath": "/api",
+  "tags": [
+    {
+      "name": "Planet Data",
+      "description": "all kinds of datas concerning the globe."
+    }
+  ],
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/data/{type}/{startDate}/{endDate}/{step}": {
+      "get": {
+        "tags": [
+          "Planet Data"
+        ],
+        "description": "# Type table\n    pm25 => PM2.5\n    pm10 =>PM10\n    o3 => Ozone\n    no2 => Nitrogen Dioxide\n    so2 => Sulphur Dioxide\n    co => Carbon Monoxyde\n    r => Rain (precipitation)\n    d => Dew\n",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "type",
+            "in": "path",
+            "description": "[temp, wind, pressure, humidity, pm25, pm10, o3, no2, co, r, d, airquality]",
+            "required": true,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "startDate",
+            "in": "path",
+            "description": "The range of years will start from this parameters (included)",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "endDate",
+            "in": "path",
+            "description": "The range of years will end to this parameters (included)",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "step",
+            "in": "path",
+            "description": "day or month or year",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "[{\"coord\" : \"48.866667 2.333333\", \"value\" : 289.01, \"date\" : ISODate(\"2019-05-07T17:35:01.803Z\"), \"country\" : \"FR\" }]"
+          }
+        }
+      }
+    }
+  }
+}
